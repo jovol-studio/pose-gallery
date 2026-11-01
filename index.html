@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="姿勢、服裝及人像離線參考圖庫。 / An offline reference library for poses, outfits, and portraits.">
+  <title>姿勢圖庫 / Pose Gallery — 參考資料庫 / Reference Library</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="catalog.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">P<span>↗</span></span><span>姿勢圖庫 / POSE GALLERY<small>創作參考資料庫 / THE REFERENCE LIBRARY</small></span></a>
+    <span class="offline"><span aria-hidden="true">●</span> 本機圖庫 / Local collection</span>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">每個角度，都有靈感。 / INSPIRATION FROM EVERY ANGLE.</p><h1>尋找下一個創作參考。<span class="heading-en" lang="en">Find your next reference.</span></h1><p class="subtitle">探索姿勢、服裝及人像，讓創作靈感延續。<br><span lang="en">Explore poses, outfits, and faces. Keep your creative flow going.</span></p></div>
+      <div class="library-total"><strong>4,345</strong><span>項參考圖片 / references</span></div>
+    </section>
+    <nav class="collections" aria-label="圖片系列 / Image collections">
+      <button type="button" data-collection="pose" aria-pressed="true">姿勢 / Poses <span>1,439</span></button>
+      <button type="button" data-collection="costume" aria-pressed="false">服裝 / Outfits <span>1,407</span></button>
+      <button type="button" data-collection="portrait" aria-pressed="false">人像 / Portraits <span>1,499</span></button>
+    </nav>
+    <section class="toolbar" aria-label="圖庫篩選 / Gallery filters">
+      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜尋名稱、編號或關鍵字 / Search…" aria-label="搜尋參考圖片 / Search references" autocomplete="off"></label>
+      <label class="filter">分類 / Category<select id="category"><option value="">所有分類 / All categories</option></select></label>
+      <label class="filter" id="detail-field"><span id="detail-label">姿勢類型 / Pose type</span><select id="detail"><option value="">所有類型 / All types</option></select></label>
+      <label class="filter" id="angle-field">角度 / Angle<select id="angle"><option value="">所有角度 / All angles</option></select></label>
+      <label class="safe-toggle"><input id="safe" type="checkbox" checked> 安全模式 / Safe mode</label>
+    </section>
+    <div class="results-bar">
+      <p id="results" role="status" aria-live="polite"></p>
+      <div class="view-controls"><label id="view-field">顯示方式 / View <select id="view"><option value="groups">姿勢分組 / Pose groups</option><option value="images">個別圖片 / Individual images</option></select></label><button id="reset" type="button" class="text-button">重設篩選 / Reset filters ↺</button></div>
+    </div>
+    <section id="gallery" class="gallery" aria-label="參考圖片 / Reference images"></section>
+    <div id="empty" class="empty" hidden><h2>找不到符合條件的圖片 / No matching references</h2><p>請嘗試其他關鍵字，或重設篩選條件。 / Try another keyword or reset your filters.</p><button type="button" id="empty-reset">重設篩選 / Reset filters</button></div>
+    <nav id="pagination" class="pagination" aria-label="圖庫頁面 / Gallery pages"><button id="previous" type="button">← 上一頁 / Previous</button><span id="page-label"></span><button id="next" type="button">下一頁 / Next →</button></nav>
+    <noscript><p class="empty">請在瀏覽器啟用 JavaScript，以瀏覽本機圖庫。 / Enable JavaScript in your browser to browse this local gallery.</p></noscript>
+  </main>
+  <footer><span>為你的創作提供靈感。 / Made for your creative process.</span><span>圖片 / Images: <a href="https://x.com/giaaibusi" target="_blank" rel="noreferrer">ギア</a> · <span>圖片來源及應用程式構思 / Image source &amp; app inspiration: <a href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noreferrer">Pose Gallery</a></span> · <a href="attribution.html">授權及圖片版權 / License &amp; image rights</a></span></footer>
+  <dialog id="preview" aria-labelledby="preview-title">
+    <div class="preview-toolbar"><span id="preview-position"></span><button type="button" id="close" aria-label="關閉預覽 / Close preview">✕</button></div>
+    <div class="preview-layout">
+      <div class="preview-canvas"><img id="preview-image" alt=""><p id="image-error" hidden>未能載入圖片，請將 img 資料夾放在 index.html 旁。 / Image could not be loaded. Keep the img folder beside index.html.</p></div>
+      <div class="preview-info"><p class="eyebrow" id="preview-category"></p><h2 id="preview-title"></h2><p id="preview-id" class="muted"></p><p id="preview-detail"></p><div id="preview-angles" class="angle-buttons" aria-label="姿勢角度 / Pose angles"></div><p id="preview-keywords"></p><a id="download" class="primary-button" download>下載原圖 / Download original ↓</a><a id="open-original" target="_blank" rel="noopener" class="text-button">開啟原圖 / Open original ↗</a><p class="hint">如瀏覽器直接開啟圖片，請按滑鼠右鍵並選擇「另存圖片」。 / If the image opens instead of downloading, right-click and choose Save Image As.</p><div class="preview-nav"><button id="preview-previous" type="button" aria-label="上一項參考 / Previous reference">← 上一項 / Previous</button><button id="preview-next" type="button" aria-label="下一項參考 / Next reference">下一項 / Next →</button></div><p class="hint">← → 瀏覽參考 / Browse · ↑ ↓ 切換角度 / Change angle · Esc 關閉 / Close</p></div>
+    </div>
+  </dialog>
+</body>
+</html>
