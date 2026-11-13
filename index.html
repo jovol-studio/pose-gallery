@@ -9,38 +9,66 @@
   <script defer src="catalog.js"></script>
   <script defer src="app.js"></script>
 </head>
-<body>
+<body class="gallery-page">
   <header class="header">
     <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">P<span>↗</span></span><span>姿勢圖庫 / POSE GALLERY<small>創作參考資料庫 / THE REFERENCE LIBRARY</small></span></a>
-    <span class="offline"><span aria-hidden="true">●</span> 本機圖庫 / Local collection</span>
+    <button id="info-button" class="info-button" type="button" aria-label="關於及鳴謝 / About & credits" aria-haspopup="dialog" aria-controls="info-dialog"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle cx="12" cy="7.5" r=".8" fill="currentColor" stroke="none"/></svg></button>
   </header>
   <main>
-    <section class="intro">
-      <div><p class="eyebrow">每個角度，都有靈感。 / INSPIRATION FROM EVERY ANGLE.</p><h1>尋找下一個創作參考。<span class="heading-en" lang="en">Find your next reference.</span></h1><p class="subtitle">探索姿勢、服裝及人像，讓創作靈感延續。<br><span lang="en">Explore poses, outfits, and faces. Keep your creative flow going.</span></p></div>
-      <div class="library-total"><strong>4,345</strong><span>項參考圖片 / references</span></div>
-    </section>
+    <div class="top-controls">
     <nav class="collections" aria-label="圖片系列 / Image collections">
       <button type="button" data-collection="pose" aria-pressed="true">姿勢 / Poses <span>1,439</span></button>
       <button type="button" data-collection="costume" aria-pressed="false">服裝 / Outfits <span>1,407</span></button>
       <button type="button" data-collection="portrait" aria-pressed="false">人像 / Portraits <span>1,499</span></button>
     </nav>
     <section class="toolbar" aria-label="圖庫篩選 / Gallery filters">
-      <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜尋名稱、編號或關鍵字 / Search…" aria-label="搜尋參考圖片 / Search references" autocomplete="off"></label>
+      <label class="search"><svg class="search-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg><input id="search" type="search" placeholder="搜尋名稱、編號或關鍵字 / Search…" aria-label="搜尋參考圖片 / Search references" autocomplete="off"></label>
       <label class="filter">分類 / Category<select id="category"><option value="">所有分類 / All categories</option></select></label>
       <label class="filter" id="detail-field"><span id="detail-label">姿勢類型 / Pose type</span><select id="detail"><option value="">所有類型 / All types</option></select></label>
       <label class="filter" id="angle-field">角度 / Angle<select id="angle"><option value="">所有角度 / All angles</option></select></label>
-      <label class="safe-toggle"><input id="safe" type="checkbox" checked> 安全模式 / Safe mode</label>
+      <label class="filter safe-field"><span>安全模式 / Safe mode</span><span class="safe-control"><input id="safe" type="checkbox" checked><span class="safe-on" aria-hidden="true">已開啟 / On</span><span class="safe-off" aria-hidden="true">已關閉 / Off</span></span></label>
     </section>
     <div class="results-bar">
       <p id="results" role="status" aria-live="polite"></p>
       <div class="view-controls"><label id="view-field">顯示方式 / View <select id="view"><option value="groups">姿勢分組 / Pose groups</option><option value="images">個別圖片 / Individual images</option></select></label><button id="reset" type="button" class="text-button">重設篩選 / Reset filters ↺</button></div>
     </div>
+    </div>
+    <div id="gallery-scroll" class="gallery-scroll" tabindex="0" role="region" aria-label="瀏覽圖庫 / Browse gallery">
     <section id="gallery" class="gallery" aria-label="參考圖片 / Reference images"></section>
     <div id="empty" class="empty" hidden><h2>找不到符合條件的圖片 / No matching references</h2><p>請嘗試其他關鍵字，或重設篩選條件。 / Try another keyword or reset your filters.</p><button type="button" id="empty-reset">重設篩選 / Reset filters</button></div>
+    </div>
     <nav id="pagination" class="pagination" aria-label="圖庫頁面 / Gallery pages"><button id="previous" type="button">← 上一頁 / Previous</button><span id="page-label"></span><button id="next" type="button">下一頁 / Next →</button></nav>
     <noscript><p class="empty">請在瀏覽器啟用 JavaScript，以瀏覽本機圖庫。 / Enable JavaScript in your browser to browse this local gallery.</p></noscript>
   </main>
-  <footer><span>為你的創作提供靈感。 / Made for your creative process.</span><span>圖片 / Images: <a href="https://x.com/giaaibusi" target="_blank" rel="noreferrer">ギア</a> · <span>圖片來源及應用程式構思 / Image source &amp; app inspiration: <a href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noreferrer">Pose Gallery</a></span> · <a href="attribution.html">授權及圖片版權 / License &amp; image rights</a></span></footer>
+  <dialog id="info-dialog" class="info-dialog" aria-labelledby="info-title">
+    <div class="preview-toolbar"><h2 id="info-title">關於及鳴謝 / About &amp; credits</h2><button id="info-close" type="button" aria-label="關閉資訊 / Close information" autofocus>✕</button></div>
+    <div class="info-content">
+    <section class="intro">
+      <div><p class="eyebrow">每個角度，都有靈感。 / INSPIRATION FROM EVERY ANGLE.</p><h1>尋找下一個創作參考。<span class="heading-en" lang="en">Find your next reference.</span></h1><p class="subtitle">探索姿勢、服裝及人像，讓創作靈感延續。<br><span lang="en">Explore poses, outfits, and faces. Keep your creative flow going.</span></p></div>
+      <div class="library-total"><strong>4,345</strong><span>項參考圖片 / references</span></div>
+    </section>
+      <p class="offline"><span aria-hidden="true">●</span> 本機圖庫 / Local collection</p>
+      <p>為你的創作提供靈感。 / Made for your creative process.</p>
+      <section aria-labelledby="source-title">
+      <h2 id="source-title">圖片來源及應用程式構思 / Image source &amp; app inspiration</h2>
+      <p>圖片來源及本應用程式的構思源自 <a href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noreferrer">Pose Gallery</a>。本應用程式向原作及其創作者致謝。</p>
+      <p lang="en">The image source and inspiration for this app is <a href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noreferrer">Pose Gallery</a>. We credit the original project and its creator.</p>
+      <p>原始參考圖片創作者 / Original reference image creator: <a href="https://x.com/giaaibusi" target="_blank" rel="noreferrer">ギア (@giaaibusi)</a></p>
+      <p>中文資料目錄及衍生專案 / Chinese catalogue and derivative project: <a href="https://github.com/anhao/ai-pose-gallery-zh" target="_blank" rel="noreferrer">Anhao / ai-pose-gallery-zh</a></p>
+      <p>原始圖庫 / Original collections: <a href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noreferrer">姿勢 / Poses</a> · <a href="https://ai-costume-gallery.pages.dev/" target="_blank" rel="noreferrer">服裝 / Outfits</a> · <a href="https://ai-portrait-gallery.pages.dev/" target="_blank" rel="noreferrer">人像 / Portraits</a></p>
+    </section>
+    <section aria-labelledby="rights-title">
+      <h2 id="rights-title">圖片及資料權利 / Image &amp; data rights</h2>
+      <p>參考圖片及原始資料目錄的權利仍屬原權利人所有。本應用程式不授予額外的圖片使用或再分發權利。請參閱原始圖庫所列的使用條款。</p>
+      <p lang="en">Rights to the reference images and original catalogue data remain with their respective owners. This app grants no additional image usage or redistribution rights. Please refer to the usage terms on the original collections.</p>
+    </section>
+    <section aria-labelledby="license-title">
+      <h2 id="license-title">程式碼授權文件 / Code licence document</h2>
+      <p>本專案的 <a href="LICENSE">LICENSE</a> 檔案載有 GNU General Public License v3 全文。圖片來源及版權資訊另列於本頁。</p>
+      <p lang="en">The project’s <a href="LICENSE">LICENSE</a> file contains the GNU General Public License v3 text. Image attribution and rights information are listed separately on this page.</p>
+    </section>
+    </div>
+  </dialog>
   <dialog id="preview" aria-labelledby="preview-title">
     <div class="preview-toolbar"><span id="preview-position"></span><button type="button" id="close" aria-label="關閉預覽 / Close preview">✕</button></div>
     <div class="preview-layout">

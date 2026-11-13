@@ -30,6 +30,14 @@
   const title = item => `${item.name} / ${item.nameEn}`;
   const number = value => value.toLocaleString('en');
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  $('info-button').addEventListener('click', () => $('info-dialog').showModal());
+  $('info-close').addEventListener('click', () => $('info-dialog').close());
+  $('info-dialog').addEventListener('close', () => $('info-button').focus());
+  $('info-dialog').addEventListener('click', event => {
+    if (event.target !== $('info-dialog')) return;
+    const rect = $('info-dialog').getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('info-dialog').close();
+  });
   if (!catalog) {
     $('results').textContent = '未能載入資料目錄，請將 catalog.js 放在 index.html 旁。 / Catalogue could not be loaded. Keep catalog.js beside index.html.';
     $('pagination').hidden = true;
@@ -81,6 +89,7 @@
   }
   function render(resetPage = true) {
     if (resetPage) state.page = 1;
+    if (resetPage) $('gallery-scroll').scrollTop = 0;
     const items = matchingItems();
     state.entries = buildEntries(items);
     const pages = Math.max(1, Math.ceil(state.entries.length / pageSize));
@@ -120,7 +129,7 @@
   function changePage(direction) {
     state.page += direction;
     render(false);
-    document.querySelector('.results-bar').scrollIntoView({ block: 'start' });
+    $('gallery-scroll').scrollTop = 0;
   }
   $('previous').addEventListener('click', () => changePage(-1));
   $('next').addEventListener('click', () => changePage(1));

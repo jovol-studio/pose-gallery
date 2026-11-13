@@ -8,3 +8,59 @@
 :root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang HK","Noto Sans TC","Microsoft JhengHei",sans-serif}
 h1{letter-spacing:0;line-height:1.3}.heading-en{display:block;font-size:.62em;letter-spacing:-.5px;margin-top:8px}.brand small{font-size:10px;letter-spacing:.5px}.eyebrow{letter-spacing:.6px;line-height:1.7}.toolbar{flex-wrap:wrap}.search{flex-basis:100%}.filter{flex:1;min-width:180px;max-width:none;font-size:11px}.filter select{font-size:12px}.results-bar,.view-controls{flex-wrap:wrap}.card h2{display:block;overflow:visible;min-height:0;-webkit-line-clamp:unset}.title-en{display:block;color:var(--muted);font-size:.9em;font-weight:400;line-height:1.5;margin-top:4px}.card-meta{flex-wrap:wrap}.image-button .badge{max-width:calc(100% - 18px);line-height:1.5;text-align:left}.image-failed::after{content:'圖片未能顯示 / Image unavailable'}.preview-info h2 .title-en{font-size:.7em}.preview-nav{flex-wrap:wrap}.preview-nav button{min-width:120px}.collections{flex-wrap:wrap}.pagination{flex-wrap:wrap}
 @media(max-width:650px){.header{gap:12px;align-items:flex-start;flex-wrap:wrap}.brand{letter-spacing:.5px}.collections button{min-width:90px;padding:12px 6px}.collections span{display:block;width:fit-content;margin:5px auto 0}.filter{min-width:0;flex-basis:100%}.view-controls{gap:8px}.view-controls label{display:flex;flex-wrap:wrap;align-items:center}.preview-toolbar{gap:10px}.eyebrow{font-size:10px}.pagination{gap:10px}.pagination button{padding:10px 8px}}
+
+/* Keep browsing controls in place while only the image grid scrolls. */
+.gallery-page{height:100vh;height:100dvh;overflow:hidden;display:flex;flex-direction:column}
+.gallery-page>.header{width:100%;flex-shrink:0;padding:12px 32px;gap:16px}
+.info-button{display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;padding:10px;border-radius:50%;background:transparent}
+.gallery-page>main{width:100%;flex:1;min-height:0;display:flex;flex-direction:column;padding:0 32px}
+.top-controls{flex-shrink:0;max-height:55%;overflow:auto;padding-top:4px}
+.gallery-page .collections{margin-bottom:12px}
+.gallery-page .collections button{padding:10px 16px}
+.gallery-page .toolbar{padding:10px 14px;gap:10px}
+.gallery-page .search{flex-basis:220px}
+.search-icon{display:block;flex-shrink:0;color:var(--muted)}
+.gallery-page .filter{min-width:130px}
+.gallery-page .filter select,.safe-control{height:36px}
+.safe-control{display:flex;align-items:center;gap:8px;width:100%;padding:8px 9px;background:var(--paper);border:1px solid var(--line);border-radius:5px;color:var(--ink);font-size:12px;letter-spacing:normal;cursor:pointer}
+.safe-control input{width:20px;height:20px;margin:0;flex-shrink:0;cursor:pointer}
+.safe-control:has(input:focus-visible){outline:2px solid var(--green);outline-offset:4px}
+.safe-control input:checked~.safe-off,.safe-control input:not(:checked)~.safe-on{display:none}
+.gallery-page .results-bar{margin:12px 0;font-size:11px}
+.gallery-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:4px 4px 24px}
+.gallery-page .pagination{flex-shrink:0;margin:0;padding:12px 0 max(12px,env(safe-area-inset-bottom));border-top:1px solid var(--line);gap:16px;background:var(--paper)}
+.info-dialog{width:min(760px,94vw)}
+.info-dialog[open]{display:flex;flex-direction:column;max-height:90vh;max-height:90dvh}
+.info-dialog .preview-toolbar{flex-shrink:0;gap:12px}
+.info-dialog .preview-toolbar h2{font-size:15px;font-weight:600;margin:0}
+.info-content{overflow:auto;padding:24px;line-height:1.8;font-size:13px;overflow-wrap:anywhere}
+.info-content .intro{padding:0 0 24px}
+.info-content h1{font-size:30px}
+.info-content h2{font-size:17px;font-weight:600;line-height:1.5}
+.info-content section+section{border-top:1px solid var(--line);margin-top:24px;padding-top:12px}
+.info-content a{text-underline-offset:3px}
+@media(max-width:650px){
+  .gallery-page>.header{padding:8px 16px;align-items:center;flex-wrap:nowrap}
+  .gallery-page .brand{font-size:11px;gap:8px;letter-spacing:0}
+  .gallery-page .brand small{font-size:8px}
+  .gallery-page .brand-icon{width:34px;height:34px;font-size:24px;flex-shrink:0}
+  .gallery-page>main{padding:0 12px}
+  .gallery-page .collections{flex-wrap:nowrap;margin-bottom:8px}
+  .gallery-page .collections button{padding:8px 4px;font-size:11px;min-width:0}
+  .gallery-page .collections span{display:inline;margin-left:4px;padding:2px 4px}
+  .gallery-page .toolbar{padding:8px;gap:8px}
+  .gallery-page .search{flex-basis:100%;min-width:0}
+  .gallery-page .search input{padding:6px 0}
+  .gallery-page .filter{flex-basis:calc(50% - 8px);min-width:0;font-size:10px}
+  .gallery-page .filter select,.gallery-page .safe-control{height:34px;padding:6px;font-size:11px}
+  .gallery-page .results-bar{gap:4px;margin:8px 0}
+  .gallery-page .view-controls{gap:4px}
+  .gallery-page .view-controls select,.gallery-page .text-button{font-size:10px}
+  .gallery-page .pagination{gap:8px;justify-content:space-between;font-size:10px;flex-wrap:nowrap}
+  .gallery-page .pagination button{font-size:10px;padding:10px 6px}
+  .gallery-page #page-label{text-align:center}
+  .info-content{padding:20px}
+  .info-content .library-total{display:block}
+  .info-content .intro{align-items:flex-start;flex-direction:column}
+  .info-content .library-total{text-align:left}
+}
