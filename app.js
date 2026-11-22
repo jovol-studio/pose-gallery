@@ -151,8 +151,7 @@
     $('preview-keywords').textContent = item.keywords ? `關鍵字 / Keywords: ${item.name} / ${item.keywords}` : '';
     $('preview-position').textContent = `第 ${number(state.previewIndex + 1)} / ${number(state.entries.length)} 項參考 · Reference ${number(state.previewIndex + 1)} of ${number(state.entries.length)}`;
     $('preview-angles').innerHTML = entry.length > 1 ? entry.map((angle, index) => `<button type="button" data-angle="${index}" aria-pressed="${index === state.angleIndex}">${esc(label(angle.angle))}</button>`).join('') : '';
-    $('download').href = $('open-original').href = item.image;
-    $('download').download = item.image.split('/').pop();
+    $('open-original').href = item.image;
     $('preview-previous').disabled = state.previewIndex === 0;
     $('preview-next').disabled = state.previewIndex === state.entries.length - 1;
   }

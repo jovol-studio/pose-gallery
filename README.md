@@ -19,7 +19,7 @@ The gallery starts with poses. Switch to Costumes or Portraits to browse the oth
 
 Filter by collection, pose type, hair length, or angle. Poses can be grouped by pose or shown as individual images. Results are paginated in sets of 48. Safe mode is enabled on each opening and hides the same categories as the original application.
 
-Click a reference to view the original. Use the angle buttons to compare a pose's views. Left/right arrows move between filtered references; up/down arrows change the angle within a group; Escape closes the preview. Use **Download original** to save an individual image. Some browsers may open local files instead of downloading them; use **Open original**, then right-click and choose **Save Image As**.
+Click a reference to view the original. Use the angle buttons to compare a pose's views. Left/right arrows move between filtered references; up/down arrows change the angle within a group; Escape closes the preview. Use **Open original** to view the full-size image in a separate tab.
 
 Everything needed for the gallery is local. Footer attribution links are optional external links. The app does not make API calls or save settings, and it works with browser storage disabled.
 
