@@ -5,9 +5,10 @@ Open **index.html** directly in a current Chrome, Edge, Firefox, or Safari brows
 Keep these files together when copying the gallery:
 
 - `index.html` — entry point and page structure
-- `styles.css` — responsive layout
-- `app.js` — search, filters, pagination, and image previews
-- `catalog.js` — local metadata, loaded with a classic script (no fetch or ES modules)
+- `assets/icons/pose-gallery.svg` — stacked POSE / GALLERY wordmark in outlined Outfit ExtraBold and Bold, shared by the header and browser icon
+- `assets/styles.css` — responsive layout
+- `assets/app.js` — search, filters, pagination, and image previews
+- `assets/catalog.js` — local metadata, loaded with a classic script (no fetch or ES modules)
 - `img/` — full-size images, organized into `pose/`, `costume/`, and `portrait/`
 - `thumbs/` — thumbnails, organized into `pose/`, `costume/`, and `portrait/`
 - `LICENSE` — GNU General Public License v3 text
@@ -25,7 +26,7 @@ Everything needed for the gallery is local. Footer attribution links are optiona
 
 ## Simplified application
 
-This version replaces the React/TypeScript/Vite application with plain HTML, CSS, and JavaScript. The AI generation studio, API proxy, ComfyUI plugin, deployment configuration, package dependencies, and maintenance scripts have been removed. Pose originals are stored in `img/pose/` and their thumbnails in `thumbs/pose/`; costume and portrait assets use their corresponding collection folders. To edit catalogue records, update `catalog.js` directly.
+This version replaces the React/TypeScript/Vite application with plain HTML, CSS, and JavaScript. The AI generation studio, API proxy, ComfyUI plugin, deployment configuration, package dependencies, and maintenance scripts have been removed. Pose originals are stored in `img/pose/` and their thumbnails in `thumbs/pose/`; costume and portrait assets use their corresponding collection folders. To edit catalogue records, update `assets/catalog.js` directly.
 
 ## Attribution and rights
 

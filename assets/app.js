@@ -39,7 +39,7 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('info-dialog').close();
   });
   if (!catalog) {
-    $('results').textContent = '未能載入資料目錄，請將 catalog.js 放在 index.html 旁。 / Catalogue could not be loaded. Keep catalog.js beside index.html.';
+    $('results').textContent = '未能載入資料目錄，請確認 assets 資料夾內有 catalog.js。 / Catalogue could not be loaded. Keep catalog.js in the assets folder.';
     $('pagination').hidden = true;
     return;
   }
@@ -150,7 +150,7 @@
     $('preview-detail').textContent = [label(item.detail), label(item.angle)].filter(Boolean).join(' · ');
     $('preview-keywords').textContent = item.keywords ? `關鍵字 / Keywords: ${item.name} / ${item.keywords}` : '';
     $('preview-position').textContent = `第 ${number(state.previewIndex + 1)} / ${number(state.entries.length)} 項參考 · Reference ${number(state.previewIndex + 1)} of ${number(state.entries.length)}`;
-    $('preview-angles').innerHTML = entry.length > 1 ? entry.map((angle, index) => `<button type="button" data-angle="${index}" aria-pressed="${index === state.angleIndex}">${esc(label(angle.angle))}</button>`).join('') : '';
+    $('preview-angles').innerHTML = entry.length > 1 ? entry.map((angle, index) => `<button type="button" data-angle="${index}" aria-pressed="${index === state.angleIndex}"><img src="${esc(angle.thumb)}" alt="" decoding="async"><span>${esc(label(angle.angle))}</span></button>`).join('') : '';
     $('open-original').href = item.image;
     $('preview-previous').disabled = state.previewIndex === 0;
     $('preview-next').disabled = state.previewIndex === state.entries.length - 1;
