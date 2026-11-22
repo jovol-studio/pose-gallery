@@ -30,11 +30,12 @@ This version replaces the React/TypeScript/Vite application with plain HTML, CSS
 
 ## Attribution and rights
 
-圖片來源及本應用程式的構思源自 [Pose Gallery](https://ai-pose-gallery.pages.dev/)。
-Image source and inspiration for this app: [Pose Gallery](https://ai-pose-gallery.pages.dev/).
+The `LICENSE` file contains the GNU General Public License v3 text. Image attribution and rights information are provided separately in [attribution.html](attribution.html). Reference images and original catalogue data remain subject to their owners’ terms; this app does not grant additional image usage or redistribution rights. 
 
-Original reference imagery: [ギア (@giaaibusi)](https://x.com/giaaibusi).
-Chinese catalogue and original project: [Anhao / ai-pose-gallery-zh](https://github.com/anhao/ai-pose-gallery-zh).
-Original collections: [poses](https://ai-pose-gallery.pages.dev/), [costumes](https://ai-costume-gallery.pages.dev/), and [portraits](https://ai-portrait-gallery.pages.dev/).
+- 圖片來源及本應用程式的構思源自 [Pose Gallery](https://ai-pose-gallery.pages.dev/)。
+- Image source and inspiration for this app: [Pose Gallery](https://ai-pose-gallery.pages.dev/).
+- Original reference imagery: [ギア (@giaaibusi)](https://x.com/giaaibusi).
+- Chinese catalogue and original project: [Anhao / ai-pose-gallery-zh](https://github.com/anhao/ai-pose-gallery-zh).
+- Original collections: [poses](https://ai-pose-gallery.pages.dev/), [costumes](https://ai-costume-gallery.pages.dev/), and [portraits](https://ai-portrait-gallery.pages.dev/).
 
-The `LICENSE` file contains the GNU General Public License v3 text. Image attribution and rights information are provided separately in [attribution.html](attribution.html). Reference images and original catalogue data remain subject to their owners’ terms; this app does not grant additional image usage or redistribution rights. See the [original Pose Gallery](https://ai-pose-gallery.pages.dev/) for its image usage terms.
+
